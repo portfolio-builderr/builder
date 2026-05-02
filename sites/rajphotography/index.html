@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #0f0f11; color: #ffffff; }
+        
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Ambient Background Glow */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(0,0,0,0) 70%);
+            top: -200px;
+            left: -200px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .bg-glow-2 {
+            position: fixed;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, rgba(0,0,0,0) 70%);
+            bottom: -300px;
+            right: -200px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f0f11; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+    </style>
+
+<title>My New Portfolio | Portfolio</title>
+<meta name="description" content="Modern digital portfolio built with CodeCanvas Portfolio Builder.">
+<meta property="og:title" content="My New Portfolio | Portfolio">
+<meta property="og:description" content="Modern digital portfolio built with CodeCanvas Portfolio Builder.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.top-0{top:0px}.z-50{z-index:50}.z-\[-2\]{z-index:-2}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-20{margin-bottom:5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:0.25rem}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[3\/4\]{aspect-ratio:3/4}.aspect-square{aspect-ratio:1 / 1}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-7xl{max-width:80rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.rounded-3xl{border-radius:1.5rem}.rounded-\[3rem\]{border-radius:3rem}.rounded-full{border-radius:9999px}.border-b{border-bottom-width:1px}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-black\/80{--tw-gradient-from:rgb(0 0 0 / 0.8) var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-12{padding:3rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-20{padding-bottom:5rem}.pb-4{padding-bottom:1rem}.pt-48{padding-top:12rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-light{font-weight:300}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.tracking-widest{letter-spacing:0.1em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-white\/20{color:rgb(255 255 255 / 0.2)}.text-white\/40{color:rgb(255 255 255 / 0.4)}.text-white\/50{color:rgb(255 255 255 / 0.5)}.text-white\/60{color:rgb(255 255 255 / 0.6)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-40{opacity:0.4}.opacity-80{opacity:0.8}.mix-blend-overlay{mix-blend-mode:overlay}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.duration-700{transition-duration:700ms}.selection\:bg-purple-500\/30 *::selection{background-color:rgb(168 85 247 / 0.3)}.selection\:bg-purple-500\/30::selection{background-color:rgb(168 85 247 / 0.3)}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:\!bg-white:hover{--tw-bg-opacity:1 !important;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1)) !important}.hover\:\!text-black:hover{--tw-text-opacity:1 !important;color:rgb(0 0 0 / var(--tw-text-opacity, 1)) !important}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:flex{display:flex}.md\:aspect-\[3\/4\]{aspect-ratio:3/4}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:p-24{padding:6rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-8xl{font-size:6rem;line-height:1}}@media (min-width: 1024px){.lg\:translate-y-12{--tw-translate-y:3rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style></head>
+<body class="antialiased min-h-screen relative overflow-x-hidden selection:bg-purple-500/30">
+
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+    
+    <!-- Fixed Background Image -->
+    <div class="fixed inset-0 z-[-2] opacity-40 mix-blend-overlay">
+        <img src="https://images.unsplash.com/photo-1552168324-d612d77725e3?q=80&amp;w=2036" class="w-full h-full object-cover grayscale" alt="texture">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 p-6">
+        <div class="max-w-7xl mx-auto glass-panel rounded-full px-8 py-4 flex justify-between items-center">
+            <div class="text-xl font-black tracking-widest uppercase" data-editable="brand_name">Rajdeep</div>
+            <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest text-white/50">
+                <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                <a href="#gear" class="hover:text-white transition-colors">Gear</a>
+                <a href="#contact" class="hover:text-white transition-colors">Booking</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="pt-48 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="glass-panel rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden group">
+            <h1 class="text-5xl md:text-8xl font-black tracking-tight mb-6" data-editable="hero_title">capture the moment
+            </h1>
+            <p class="text-lg md:text-2xl font-light text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed" data-editable="hero_subtitle">Fine Art &amp; Editorial Photographer based in Tokyo. We bend light to tell your story in its purest form.</p>
+            <a href="#portfolio" class="inline-block glass-card rounded-full px-10 py-5 font-bold uppercase tracking-widest text-sm hover:!bg-white hover:!text-black transition-all">
+                Explore Gallery
+            </a>
+        </div>
+    </main>
+
+    <!-- Masonry Portfolio -->
+    <section id="portfolio" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-white/40 text-center" data-editable="gallery_heading">My work</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Item 1 -->
+            <div class="glass-card rounded-3xl overflow-hidden aspect-[3/4] relative group">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&amp;w=1964" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <div>
+                        <h3 class="text-2xl font-bold" data-editable="photo_1_title">Midnight Portrait</h3>
+                        <p class="text-sm text-white/50 uppercase tracking-widest mt-1" data-editable="photo_1_cat">Editorial</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="glass-card rounded-3xl overflow-hidden aspect-square md:aspect-[3/4] relative group lg:translate-y-12">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&amp;w=2071" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <div>
+                        <h3 class="text-2xl font-bold" data-editable="photo_2_title">Urban Decay</h3>
+                        <p class="text-sm text-white/50 uppercase tracking-widest mt-1" data-editable="photo_2_cat">Street</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="glass-card rounded-3xl overflow-hidden aspect-[3/4] relative group">
+                <img src="https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?q=80&amp;w=1974" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <div>
+                        <h3 class="text-2xl font-bold" data-editable="photo_3_title">Monochrome</h3>
+                        <p class="text-sm text-white/50 uppercase tracking-widest mt-1" data-editable="photo_3_cat">Fine Art</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="glass-card rounded-3xl overflow-hidden aspect-square relative group md:col-span-2">
+                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&amp;w=2070" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <div>
+                        <h3 class="text-2xl font-bold" data-editable="photo_4_title">Neon Nights</h3>
+                        <p class="text-sm text-white/50 uppercase tracking-widest mt-1" data-editable="photo_4_cat">Commercial</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="glass-card rounded-3xl overflow-hidden aspect-square relative group">
+                <img src="https://images.unsplash.com/photo-1554046920-90dcac471c26?q=80&amp;w=1980" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <div>
+                        <h3 class="text-2xl font-bold" data-editable="photo_5_title">Silence</h3>
+                        <p class="text-sm text-white/50 uppercase tracking-widest mt-1" data-editable="photo_5_cat">Nature</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info & Contact -->
+    <section id="contact" class="py-20 px-6 max-w-7xl mx-auto mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="glass-panel rounded-[3rem] p-12">
+                <h3 class="text-3xl font-black mb-6" data-editable="about_heading">The Vision</h3>
+                <p class="text-white/60 leading-relaxed font-light mb-8" data-editable="about_desc">With over a decade of experience shooting in analog and digital formats, my work bridges the gap between classic cinematic aesthetics and modern minimalist compositions. I am currently accepting editorial and commercial bookings worldwide.</p>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-white/5 pb-4">
+                        <span class="text-white/40 uppercase tracking-widest text-xs font-bold" data-editable="stat_1_label">Exhibitions</span>
+                        <span class="font-bold" 4="" worldwide<="" span="">
+                    </span></div>
+                    <div class="flex justify-between border-b border-white/5 pb-4">
+                        <span class="text-white/40 uppercase tracking-widest text-xs font-bold" data-editable="stat_2_label">achievements</span>
+                        <span class="font-bold" data-editable="stat_2_val">since 2026</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-panel rounded-[3rem] p-12 flex flex-col justify-center text-center">
+                <h3 class="text-4xl font-black mb-4" data-editable="contact_heading">Let's Create.</h3>
+                <p class="text-white/50 mb-8" data-editable="contact_desc">Available for direct bookings or agency collaborations.</p>
+                <a href="mailto:hello@example.com" class="inline-block bg-white text-black rounded-full px-8 py-4 font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform" data-editable="contact_email">booking@lens.studio</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-white/20 font-bold tracking-widest uppercase text-xs">
+        <span data-editable="footer_text">© 2026 LENS PHOTOGRAPHY.</span>
+    </footer>
+
+
+</body></html>
